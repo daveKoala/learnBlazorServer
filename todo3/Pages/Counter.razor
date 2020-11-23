@@ -1,0 +1,26 @@
+﻿@page "/counter"
+
+@using DataAccessLibrary;
+
+@inject IMongoDataAccess _client;
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    protected async override Task<Task> OnInitializedAsync()
+    {
+        await _client.ListCollections();
+        return base.OnInitializedAsync();
+    }
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
