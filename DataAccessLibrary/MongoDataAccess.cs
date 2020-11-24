@@ -19,7 +19,6 @@ namespace DataAccessLibrary
 
         public async Task ListCollections()
         {
-            Console.WriteLine("HERE WE ARE.........");
 
             string connectionString = _config.GetConnectionString(ConnectionStringName);
 

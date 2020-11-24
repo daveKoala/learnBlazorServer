@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using todo3.Data;
 using DataAccessLibrary;
+using Microsoft.Extensions.Options;
+
 namespace todo3
 {
     public class Startup
@@ -23,7 +25,6 @@ namespace todo3
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
-            services.AddTransient<IMongoDataAccess, MongoDataAccess>();
             services.AddTransient<ISQLDataAccess, SQLDataAccess>();
             services.AddTransient<IPeopleData, PeopleData>();
         }
