@@ -1,7 +1,10 @@
 ﻿@page "/fetchdata"
 
 @using todo3.Data
+@using DataAccessLibrary.User
+
 @inject WeatherForecastService ForecastService
+@inject UserService User
 
 <h1>Weather forecast</h1>
 
@@ -36,12 +39,48 @@ else
     </table>
 }
 
+@if (users is null)
+{
+    <p>Loading......</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in users)
+            {
+                <tr>
+                    <td>@user.Id</td>
+
+                    <td>@user.FirstName</td>
+
+                    <td>@user.LastName</td>
+
+                    <td>@user.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
 @code {
     private WeatherForecast[] forecasts;
+
+    public IEnumerable<User> users = null;
 
     protected override async Task OnInitializedAsync()
     {
         Console.WriteLine("OnInitializedAsync");
         forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+
+        users = User.Get();
     }
 }

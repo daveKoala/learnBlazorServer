@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using todo3.Data;
 using DataAccessLibrary;
 using Microsoft.Extensions.Options;
+using DataAccessLibrary.User;
 
 namespace todo3
 {
@@ -27,6 +28,7 @@ namespace todo3
             services.AddSingleton<WeatherForecastService>();
             services.AddTransient<ISQLDataAccess, SQLDataAccess>();
             services.AddTransient<IPeopleData, PeopleData>();
+            services.AddSingleton<UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
