@@ -22,9 +22,9 @@ namespace DataAccessLibrary
 
             string connectionString = _config.GetConnectionString(ConnectionStringName);
 
-            MongoClient client = new MongoClient(connectionString);
+            MongoClient client = new MongoClient(connectionString); // This is the bit that needs exported
 
-            var dbList = await client.ListDatabaseNamesAsync();
+            var dbList = await client.ListDatabaseNamesAsync(); 
 
             foreach (var item in dbList.ToList())
             {
