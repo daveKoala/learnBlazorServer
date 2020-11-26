@@ -7,6 +7,7 @@ using todo3.Data;
 using DataAccessLibrary;
 using Microsoft.Extensions.Options;
 using DataAccessLibrary.User;
+using DataAccessLibrary.People;
 
 namespace todo3
 {
@@ -27,7 +28,7 @@ namespace todo3
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
             services.AddTransient<ISQLDataAccess, SQLDataAccess>();
-            services.AddTransient<IPeopleData, PeopleData>();
+            services.AddTransient<IPeopleService, PeopleService>();
             services.AddSingleton<UserService>();
         }
 

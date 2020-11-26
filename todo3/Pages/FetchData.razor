@@ -6,7 +6,8 @@
 @inject WeatherForecastService ForecastService
 @inject UserService User
 
-<h1>Weather forecast</h1>
+<h2>Fetching data</h2>
+<h3>Weather forecast (Local)</h3>
 
 <p>This component demonstrates fetching data from a service.</p>
 
@@ -39,6 +40,7 @@ else
     </table>
 }
 
+<h3>MongoDB</h3>
 @if (users is null)
 {
     <p>Loading......</p>

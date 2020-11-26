@@ -1,12 +1,12 @@
 ﻿@page "/people"
 
 @using DataAccessLibrary
-@using DataAccessLibrary.Models
+@using DataAccessLibrary.People
 
-@inject IPeopleData _db
+@inject IPeopleService _db
 
-
-<h3>People</h3>
+<h2>Fetching data from mySQL database</h2>
+<h3>People.</h3>
 
 @if(people is null)
 {
@@ -40,7 +40,7 @@
 }
 
 @code {
-    private List<PersonModel> people;
+    private List<Person> people;
 
     protected override async Task OnInitializedAsync()
     {

@@ -12,8 +12,8 @@
     <PackageReference Include="MongoDB.Driver" Version="2.11.4" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Interfaces\" />
     <Folder Include="User\" />
+    <Folder Include="People\" />
   </ItemGroup>
 </Project>

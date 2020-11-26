@@ -1,26 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using DataAccessLibrary.Models;
 
-namespace DataAccessLibrary
+namespace DataAccessLibrary.People
 {
-    public class PeopleData : IPeopleData
+    public class PeopleService : IPeopleService
     {
         private readonly ISQLDataAccess _db;
 
-        public PeopleData(ISQLDataAccess db)
+        public PeopleService(ISQLDataAccess db)
         {
             _db = db;
         }
 
-        public Task<List<PersonModel>> GetPeople()
+        public Task<List<Person>> GetPeople()
         {
             string sql = "SELECT * FROM test_people.user;";
-            return _db.LoadData<PersonModel, dynamic>(sql, new { });
+            return _db.LoadData<Person, dynamic>(sql, new { });
         }
 
-        public Task InsertPerson(PersonModel person)
+        public Task InsertPerson(Person person)
         {
             string sql = @"INSERT INTO test_people.user (firstName, lastName, email)
                            VALUES(@FirstName, @LastName, @Email)";

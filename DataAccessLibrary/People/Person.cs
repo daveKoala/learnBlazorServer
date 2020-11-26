@@ -1,7 +1,7 @@
 ﻿using System;
-namespace DataAccessLibrary.Models
+namespace DataAccessLibrary.People
 {
-    public class PersonModel
+    public class Person
     {
         public string FirstName { get; set; }
 
