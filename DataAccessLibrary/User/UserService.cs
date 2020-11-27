@@ -8,7 +8,7 @@ namespace DataAccessLibrary.User
     {
         private IMongoCollection<User> _userColection;
 
-        public UserService()
+        public UserService() // Here will be the mongo client, but how to inject it INSIDE this data access library. So the main todo3 part only injects the services needed not services AND clients seperatly
         {
             var client = new MongoClient("mongodb://localhost:27017");
 

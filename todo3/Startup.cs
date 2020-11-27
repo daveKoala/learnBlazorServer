@@ -26,10 +26,13 @@ namespace todo3
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+
             services.AddSingleton<WeatherForecastService>();
+
             services.AddTransient<ISQLDataAccess, SQLDataAccess>();
             services.AddTransient<IPeopleService, PeopleService>();
-            services.AddSingleton<UserService>();
+
+            services.AddSingleton<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
